@@ -20,4 +20,13 @@ typedef struct s_game
 
 #include <stdio.h>
 
+/* Moves */
+int	ft_swap(t_stack *stack);
+int	ft_ss(t_game *game);
+int ft_pa(t_game *game);
+int ft_pb(t_game *game);
+void	ft_ra(t_stack *a);
+void	ft_rb(t_stack *b);
+void	ft_rr(t_game *game);
+
 #endif

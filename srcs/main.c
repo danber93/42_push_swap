@@ -71,4 +71,12 @@ int	main(int ac, char** av)
 		printf("stack = %i \n", stack->num);
 		stack = stack->next;
 	}
+	printf("Dopo ra \n");
+	ft_ra(game->a);
+	stack = game->a;
+	while (stack)
+	{
+		printf("stack = %i \n", stack->num);
+		stack = stack->next;
+	}
 }
