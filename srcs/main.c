@@ -4,7 +4,7 @@ int	ft_populate_stack(t_stack *stck, char** av)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	while (av[i])
 	{
 		stck->num = ft_atoi(av[i++]);
@@ -51,12 +51,24 @@ t_game	*ft_init_game(char **av)
 int	main(int ac, char** av)
 {
 	int		i;
-	t_game *game;
+	t_game	*game;
+	t_stack	*stack;
 
-	i = 0;
+	i = 1;
 	game = ft_init_game(av);
+	stack = game->a;
+	printf("ac = %i \n", ac);
 	while (i < ac)
 	{
-		printf("%s \n",av[i++]);
+		printf("AV[%i] = %s \n", i, av[i]);
+		i++;
+		stack = stack->next;
+	}
+	stack = game->a;
+	printf("Printiamo lo stack \n");
+	while (stack)
+	{
+		printf("stack = %i \n", stack->num);
+		stack = stack->next;
 	}
 }
