@@ -21,6 +21,7 @@ INCLUDE		=	-I include/					\
 RM			=	/bin/rm -f
 
 PS_FILES	=	main.c			\
+				push_swap.c
 				# list.c			\
 				# list_sort.c		\
 				# list_u1.c		\
