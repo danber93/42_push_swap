@@ -104,6 +104,6 @@ int	main(int ac, char** av)
 	// print_game(game);
 	// ft_rr(game);
 	// print_game(game);
-	ft_rrb(game);
+	ft_rrr(game);
 	print_game(game);
 }

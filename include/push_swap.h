@@ -30,5 +30,6 @@ void	ft_rb(t_stack *b);
 void	ft_rr(t_game *game);
 void	ft_rra(t_game *game);
 void	ft_rrb(t_game *game);
+void	ft_rrr(t_game *game);
 
 #endif
