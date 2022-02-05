@@ -7,7 +7,7 @@ int	ft_populate_stack(t_stack *stck, char** av)
 	i = 1;
 	while (av[i])
 	{
-		stck->num = ft_atoi(av[i++]);
+		stck->value = ft_atoi(av[i++]);
 		if (av[i])
 		{
 			stck->next = malloc(sizeof(t_stack));
@@ -21,19 +21,18 @@ int	ft_populate_stack(t_stack *stck, char** av)
 	return (1);
 }
 
-t_stack	*ft_init_stack(char **av, int is_a)
+t_stack	*ft_init_a(char **av)
 {
 	t_stack	*new;
 
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
 		return (0);
-	new->num = 0;
+	new->value = 0;
 	new->next = NULL;
 	new->prev = NULL;
-	if (is_a)
-		if (!ft_populate_stack(new, av))
-			return (0);
+	if (!ft_populate_stack(new, av))
+		return (0);
 	return (new);
 }
 
@@ -43,9 +42,39 @@ t_game	*ft_init_game(char **av)
 
 	game = (t_game*)malloc(sizeof(t_game));
 	game->n_moves = 0;
-	game->a = ft_init_stack(av, 1);
-	game->b = ft_init_stack(av, 0);
+	game->a = ft_init_a(av);
+	game->b = NULL;
 	return (game);
+}
+
+void	print_game(t_game *g)
+{
+	t_stack	*a;;
+	t_stack	*b;
+
+	a = g->a;
+	b = g->b;
+	while (a || b)
+	{
+		if (a && b)
+		{
+			printf("%i        %i\n", a->value, b->value);
+			a = a->next;
+			b = b->next;
+		}
+		else if (a && !b)
+		{
+			printf("%i         \n", a->value);
+			a = a->next;
+		}
+		else if (!a && b)
+		{
+			printf("         %i\n", b->value);
+			b = b->next;
+		}
+	}
+	printf("--       --\n");
+	printf("a.........b\n\n");
 }
 
 int	main(int ac, char** av)
@@ -57,26 +86,24 @@ int	main(int ac, char** av)
 	i = 1;
 	game = ft_init_game(av);
 	stack = game->a;
-	printf("ac = %i \n", ac);
+	printf("ac = %i \n\n", ac);
 	while (i < ac)
 	{
-		printf("AV[%i] = %s \n", i, av[i]);
 		i++;
 		stack = stack->next;
 	}
-	stack = game->a;
-	printf("Printiamo lo stack \n");
-	while (stack)
-	{
-		printf("stack = %i \n", stack->num);
-		stack = stack->next;
-	}
-	printf("Dopo ra \n");
-	ft_ra(game->a);
-	stack = game->a;
-	while (stack)
-	{
-		printf("stack = %i \n", stack->num);
-		stack = stack->next;
-	}
+	print_game(game);
+	// ft_ra(game->a);
+	// ft_swap(game->a);  OK
+	//  ft_ss(game); OK con b vuota
+	ft_pb(game);
+	// print_game(game);
+	ft_pb(game);
+	print_game(game);
+	// // ft_rb(game->b);
+	// print_game(game);
+	// ft_rr(game);
+	// print_game(game);
+	ft_rrb(game);
+	print_game(game);
 }

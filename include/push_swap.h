@@ -3,7 +3,7 @@
 
 typedef struct	s_stack
 {
-	int				num;
+	int				value;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
@@ -28,5 +28,7 @@ int ft_pb(t_game *game);
 void	ft_ra(t_stack *a);
 void	ft_rb(t_stack *b);
 void	ft_rr(t_game *game);
+void	ft_rra(t_game *game);
+void	ft_rrb(t_game *game);
 
 #endif
