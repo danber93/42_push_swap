@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int		ft_bits(int	len)
+int		ft_n_bits(int	len)
 {
 	int	digits;
 
@@ -13,7 +13,7 @@ int		ft_bits(int	len)
 	return (digits);
 }
 
-char	*ft_bin(int	n, int len)
+char	*ft_int_to_bin(int	n, int len)
 {
 	char	*bin;
 	int		i;
@@ -46,7 +46,7 @@ int	ft_add_stack(t_stack *a, int value, int len)
 		a = malloc(sizeof(t_stack));
 		if (!a)
 			return (0);
-		a->bin = ft_bin(value, len);
+		a->bin = ft_int_to_bin(value, len);
 		a->next = NULL;
 		a->prev = NULL;
 	}
@@ -57,7 +57,7 @@ int	ft_add_stack(t_stack *a, int value, int len)
 		a->next = malloc(sizeof(t_stack));
 		if (!a)
 			return (0);
-		a->next->bin = ft_bin(value, len);
+		a->next->bin = ft_int_to_bin(value, len);
 		a->next->prev = a;
 		a->next->next = NULL;
 	}
@@ -75,7 +75,7 @@ int	ft_pop_a(t_stack *a, char **av, int ac, int *arr)
 		j = 0;
 		while (arr[j] != ft_atoi(av[i]))
 			j++;
-		if (!(ft_add_stack(a, j, ft_bits(ac - 1))))
+		if (!(ft_add_stack(a, j, ft_n_bits(ac - 1))))
 			return (0);
 		i++;
 	}
@@ -90,11 +90,10 @@ t_stack	*ft_init_a(char **av, int ac, int *arr)
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
 		return (0);
-	new->value = 0;
 	j = 0;
 	while(arr[j] != ft_atoi(av[1]))
 		j++;
-	new->bin = ft_bin(j, ft_bits(ac - 1));
+	new->bin = ft_int_to_bin(j, ft_n_bits(ac - 1));
 	new->next = NULL;
 	new->prev = NULL;
 	if (!(ft_pop_a(new, av, ac, arr)))
