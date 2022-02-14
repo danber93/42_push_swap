@@ -50,7 +50,7 @@ int	ft_pop_a(t_stack *a, char **av, int ac, int *arr);
 t_game	*ft_init_game(char **av, int ac, int *arr);
 
 /* Order alg */
-void	ft_order(t_game	*g);
+void	ft_radix_sort(t_game	*g);
 
 void	print_game(t_game *g);
 #endif

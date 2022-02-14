@@ -20,8 +20,8 @@ INCLUDE		=	-I include/					\
 
 RM			=	/bin/rm -f
 
-PS_FILES	=	main.c			\
-				push_swap.c		\
+PS_FILES	=	push_swap.c			\
+				radix_sort.c		\
 				moves.c			\
 				binary_tree.c	\
 				binary_stack.c
