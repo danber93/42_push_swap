@@ -1,25 +1,21 @@
 #include "push_swap.h"
 
-// int	ft_swap(t_stack *stack)
-// {
-// 	int	tmp;
+int	ft_sa(t_game *g)
+{
+	t_stack	*a;
+	char	*tmp;
 
-// 	if (stack->next)
-// 	{
-// 		tmp = stack->value;
-// 		stack->value = stack->next->value;
-// 		stack->next->value = tmp;
-// 		return (1);
-// 	}
-// 	return (0);
-// }
-
-// int	ft_ss(t_game *game)
-// {
-// 	ft_swap(game->a);
-// 	ft_swap(game->b);
-// 	return (1);
-// }
+	a = g->a;
+	if (a->next)
+	{
+		tmp = ft_strdup(a->bin);
+		a->bin = a->next->bin;
+		a->next->bin = ft_strdup(tmp);
+		free(tmp);
+		return (1);
+	}
+	return (0);
+}
 
 int ft_pa(t_game *game)
 {
@@ -105,6 +101,29 @@ void	ft_ra(t_game *game)
 // 	ft_rb(game->b);
 // }
 
+void	ft_rra(t_game *game)
+{
+	t_stack	*a;
+	char	*prec_bin;
+	char	*current_bin;
+
+	a = game->a;
+	if (!(a->next))
+		return;
+	prec_bin = ft_strdup(a->bin);
+	a = a->next;
+	while (a)
+	{
+		current_bin = ft_strdup(a->bin);
+		a->bin = ft_strdup(prec_bin);
+		prec_bin = ft_strdup(current_bin);
+		a = a->next;
+	}
+	game->a->bin = ft_strdup(prec_bin);
+	free(prec_bin);
+	free(current_bin);
+}
+
 // void	ft_rra(t_game *game)
 // {
 // 	t_stack	*a;
@@ -125,6 +144,8 @@ void	ft_ra(t_game *game)
 // 	}
 // 	game->a->value = prec_value;
 // }
+
+
 
 // void	ft_rrb(t_game *game)
 // {

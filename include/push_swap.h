@@ -29,7 +29,7 @@ typedef struct s_game
 #include <stdio.h>
 
 /* Moves */
-int	ft_swap(t_stack *stack);
+int	ft_sa(t_game *game);
 int	ft_ss(t_game *game);
 int	ft_pa(t_game *game);
 int	ft_pb(t_game *game);
@@ -49,8 +49,9 @@ void	ft_free_btree(t_node *node);
 int	ft_pop_a(t_stack *a, char **av, int ac, int *arr);
 t_game	*ft_init_game(char **av, int ac, int *arr);
 
-/* Order alg */
+/* Order */
 void	ft_radix_sort(t_game	*g);
-
+void	ft_stack_three(t_game *g);
 void	print_game(t_game *g);
+
 #endif
