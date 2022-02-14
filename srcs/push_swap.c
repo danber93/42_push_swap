@@ -209,6 +209,8 @@ int	main(int ac, char** av)
 	// printf("ft_n_args = %i\n", ft_n_args)
 	if (ft_n_args(av) == 4)
 		ft_stack_three(game);
+	else if (ft_n_args(av) == 6)
+		ft_stack_five(game);
 	else
 		ft_radix_sort(game);
 	ft_free_game(game);

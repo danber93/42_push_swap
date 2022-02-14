@@ -52,6 +52,8 @@ t_game	*ft_init_game(char **av, int ac, int *arr);
 /* Order */
 void	ft_radix_sort(t_game	*g);
 void	ft_stack_three(t_game *g);
+void	ft_stack_five(t_game *g);
 void	print_game(t_game *g);
+int	ft_is_bigger(char *s1, char *s2);
 
 #endif

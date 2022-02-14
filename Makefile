@@ -22,10 +22,11 @@ RM			=	/bin/rm -f
 
 PS_FILES	=	push_swap.c			\
 				radix_sort.c		\
-				moves.c			\
-				binary_tree.c	\
+				moves.c				\
+				binary_tree.c		\
 				binary_stack.c		\
-				stack_three.c
+				stack_three.c		\
+				stack_five.c
 				# list.c			\
 				# list_sort.c		\
 				# list_u1.c		\

@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int	ft_s3_is_bigger(char *s1, char *s2)
+int	ft_is_bigger(char *s1, char *s2)
 {
 	int	len;
 	int	i;
@@ -22,8 +22,8 @@ int		ft_case_1(t_game *g)
 	t_stack	*a;
 
 	a = g->a;
-	if (ft_s3_is_bigger(a->bin, a->next->bin)
-		&& !(ft_s3_is_bigger(a->bin, a->next->next->bin)))
+	if (ft_is_bigger(a->bin, a->next->bin)
+		&& !(ft_is_bigger(a->bin, a->next->next->bin)))
 		return (1);
 	return (0);
 }
@@ -33,9 +33,9 @@ int	ft_case_2(t_game *g)
 	t_stack *a;
 
 	a = g->a;
-	if (ft_s3_is_bigger(a->bin, a->next->bin)
-		&& ft_s3_is_bigger(a->bin, a->next->next->bin)
-		&& ft_s3_is_bigger(a->next->bin, a->next->next->bin))
+	if (ft_is_bigger(a->bin, a->next->bin)
+		&& ft_is_bigger(a->bin, a->next->next->bin)
+		&& ft_is_bigger(a->next->bin, a->next->next->bin))
 		return (1);
 	return (0);
 }
@@ -45,9 +45,9 @@ int	ft_case_3(t_game *g)
 	t_stack *a;
 
 	a = g->a;
-	if (ft_s3_is_bigger(a->bin, a->next->bin)
-		&& ft_s3_is_bigger(a->bin, a->next->next->bin)
-		&& !(ft_s3_is_bigger(a->next->bin, a->next->next->bin)))
+	if (ft_is_bigger(a->bin, a->next->bin)
+		&& ft_is_bigger(a->bin, a->next->next->bin)
+		&& !(ft_is_bigger(a->next->bin, a->next->next->bin)))
 		return (1);
 	return (0);
 }
@@ -57,9 +57,9 @@ int	ft_case_4(t_game *g)
 	t_stack *a;
 
 	a = g->a;
-	if (!(ft_s3_is_bigger(a->bin, a->next->bin))
-		&& ft_s3_is_bigger(a->next->bin, a->next->next->bin)
-		&& !(ft_s3_is_bigger(a->bin, a->next->next->bin)))
+	if (!(ft_is_bigger(a->bin, a->next->bin))
+		&& ft_is_bigger(a->next->bin, a->next->next->bin)
+		&& !(ft_is_bigger(a->bin, a->next->next->bin)))
 		return (1);
 	return (0);
 }
