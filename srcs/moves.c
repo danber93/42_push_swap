@@ -5,6 +5,7 @@ int	ft_sa(t_game *g)
 	t_stack	*a;
 	char	*tmp;
 
+	ft_putstr_fd("sa\n\0", 1);
 	a = g->a;
 	if (a->next)
 	{
@@ -21,6 +22,7 @@ int ft_pa(t_game *game)
 {
 	t_stack	*new_a;
 
+	ft_putstr_fd("pa\n\0", 1);
 	if (game->b)
 	{
 		new_a = (t_stack *)malloc(sizeof(t_stack));
@@ -44,6 +46,7 @@ int ft_pb(t_game *game)
 {
 	t_stack	*b;
 
+	ft_putstr_fd("pb\n\0", 1);
 	b = malloc(sizeof(t_stack));
 	if (!b)
 		return (-1);
@@ -79,26 +82,8 @@ void	ft_ra(t_game *game)
 	}
 	a->bin = ft_strdup(first);
 	free(first);
+	ft_putstr_fd("ra\n\0", 1);
 }
-
-// void	ft_rb(t_stack *b)
-// {
-// 	int	first;
-
-// 	first = b->value;
-// 	while(b->next)
-// 	{
-// 		b->value = b->next->value;
-// 		b = b->next;
-// 	}
-// 	b->value = first;
-// }
-
-// void	ft_rr(t_game *game)
-// {
-// 	ft_ra(game);
-// 	ft_rb(game->b);
-// }
 
 void	ft_rra(t_game *game)
 {
@@ -121,54 +106,5 @@ void	ft_rra(t_game *game)
 	game->a->bin = ft_strdup(prec_bin);
 	free(prec_bin);
 	free(current_bin);
+	ft_putstr_fd("rra\n\0", 1);
 }
-
-// void	ft_rra(t_game *game)
-// {
-// 	t_stack	*a;
-// 	int	prec_value;
-// 	int	current_value;
-
-// 	a = game->a;
-// 	if (!(a->next))
-// 		return;
-// 	prec_value = a->value;
-// 	a = a->next;
-// 	while (a)
-// 	{
-// 		current_value = a->value;
-// 		a->value = prec_value;
-// 		prec_value = current_value;
-// 		a = a->next;
-// 	}
-// 	game->a->value = prec_value;
-// }
-
-
-
-// void	ft_rrb(t_game *game)
-// {
-// 	t_stack	*b;
-// 	int	prec_value;
-// 	int	current_value;
-
-// 	b = game->b;
-// 	if (!(b->next))
-// 		return;
-// 	prec_value = b->value;
-// 	b = b->next;
-// 	while (b)
-// 	{
-// 		current_value = b->value;
-// 		b->value = prec_value;
-// 		prec_value = current_value;
-// 		b = b->next;
-// 	}
-// 	game->b->value = prec_value;
-// }
-
-// void	ft_rrr(t_game *game)
-// {
-// 	ft_rra(game);
-// 	ft_rrb(game);
-// }

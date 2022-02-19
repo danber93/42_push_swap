@@ -207,15 +207,15 @@ int	main(int ac, char** av)
 	ft_free_btree(root);
 	game = ft_init_game(av, ft_n_args(av), arr);
 	free(arr);
-	// printf("ft_n_args = %i\n", ft_n_args)
+	// print_game(game);
 	if (ft_n_args(av) == 4)
 		ft_stack_three(game);
 	else if (ft_n_args(av) == 6)
 		ft_stack_five(game);
 	else
 		ft_radix_sort(game);
+	// print_game(game);
 	ft_free_game(game);
-	
 }
 
 //  TODO:
