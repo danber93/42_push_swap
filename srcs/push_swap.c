@@ -186,6 +186,8 @@ int		ft_check_valid_input(char **av)
 	while (av[i])
 	{
 		j = 0;
+		if (av[i][j] == '-' || av[i][j] == '+')
+			j++;
 		while (av[i][j])
 		{
 			if (!(ft_isdigit(av[i][j]) || ft_isspace(av[i][j])))
@@ -264,16 +266,17 @@ int	main(int ac, char** av)
 	ft_free_btree(root);
 	game = ft_init_game(av, ft_n_args(av), arr);
 	free(arr);
-	if (ft_n_args(av) == 4)
-		ft_stack_three(game);
-	else if (ft_n_args(av) == 6)
-		ft_stack_five(game);
-	else
-		ft_radix_sort(game);
+	if (!(ft_is_solved(game)))
+	{
+		if (ft_n_args(av) == 4)
+			ft_stack_three(game);
+		else if (ft_n_args(av) == 6)
+			ft_stack_five(game);
+		else
+			ft_radix_sort(game);
+	}
 	ft_free_game(game);
 }
 
 //  TODO:
-//  se piu grande di MAXINT deve tornare errore
-//  nel caso in cui venga data una stringa contenente la lista questa alla fine non viene liberata!
-//  se e gia ordinato non fare niente
+//  numeri negativi nella stringa danno errore

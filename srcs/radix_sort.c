@@ -26,7 +26,6 @@ void	ft_it_b(t_game *g)
 	while (b)
 	{
 		ft_pa(g);
-		ft_putstr_fd("pa\n\0", 1);
 		b = g->b;
 	}
 }
@@ -34,19 +33,16 @@ void	ft_it_b(t_game *g)
 void	ft_rotate_a(t_game *g)
 {
 	ft_ra(g);
-	ft_putstr_fd("ra\n\0", 1);
 }
 
 void	ft_move_to_b(t_game *g)
 {
 	ft_pb(g);
-	ft_putstr_fd("pb\n\0", 1);
 }
 
 int	ft_first_hit(t_game *g)
 {
 	ft_ra(g);
-	ft_putstr_fd("ra\n\0", 1);
 	return (1);
 }
 
