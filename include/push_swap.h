@@ -55,5 +55,6 @@ void	ft_stack_three(t_game *g);
 void	ft_stack_five(t_game *g);
 void	print_game(t_game *g);
 int	ft_is_bigger(char *s1, char *s2);
+int ft_is_sorted(t_stack *a);
 
 #endif

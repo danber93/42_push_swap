@@ -1,21 +1,5 @@
 #include "push_swap.h"
 
-int	ft_is_bigger(char *s1, char *s2)
-{
-	int	len;
-	int	i;
-
-	len = ft_strlen(s1);
-	i = 0;
-	while (i < len)
-	{
-		if (s1[i] == '1' && s2[0] == '0')
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
 /* g m p */
 int		ft_case_1(t_game *g)
 {
@@ -64,9 +48,28 @@ int	ft_case_4(t_game *g)
 	return (0);
 }
 
-/* ci sono cinque casi quindi dobbiamo prenderli in considerazione */
+void	ft_print_a(t_stack *a)
+{
+	t_stack *s;
+
+	s = a;
+	printf("PRINT A\n");
+	while (a)
+	{
+		printf("%s\n", a->bin);
+		a = a->next;
+	}
+	printf("#######\n");
+}
+
 void	ft_stack_three(t_game *g)
 {
+	// ft_print_a(g->a);
+	if (ft_is_sorted(g->a))
+	{
+		printf("is sorted.\n");
+		return;
+	}
 	if (ft_case_1(g))
 	{
 		ft_sa(g);

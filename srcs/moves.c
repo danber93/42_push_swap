@@ -49,11 +49,10 @@ int ft_pb(t_game *game)
 		return (-1);
 	b->next = NULL;
 	b->prev = NULL;
-	if (!b && game->a)
-		game->b = b;
 	if (game->a)
 	{
-		b->next = game->b;
+		if (game->b)
+			b->next = game->b;
 		game->b = b;
 		b->bin = ft_strdup(game->a->bin);
 		/* uso b per liberare il primo elemento della lista a */
