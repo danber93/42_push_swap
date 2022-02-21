@@ -18,7 +18,7 @@ int	ft_sa(t_game *g)
 	return (0);
 }
 
-int ft_pa(t_game *game)
+int	ft_pa(t_game *game)
 {
 	t_stack	*new_a;
 
@@ -32,7 +32,6 @@ int ft_pa(t_game *game)
 		new_a->prev = NULL;
 		new_a->next = game->a;
 		game->a = new_a;
-		/* uso new_a per liberare il primo elemento della lista b */
 		new_a = game->b;
 		game->b = game->b->next;
 		free(new_a->bin);
@@ -42,7 +41,7 @@ int ft_pa(t_game *game)
 	return (0);
 }
 
-int ft_pb(t_game *game)
+int	ft_pb(t_game *game)
 {
 	t_stack	*b;
 
@@ -58,7 +57,6 @@ int ft_pb(t_game *game)
 			b->next = game->b;
 		game->b = b;
 		b->bin = ft_strdup(game->a->bin);
-		/* uso b per liberare il primo elemento della lista a */
 		b = game->a;
 		game->a = game->a->next;
 		free(b->bin);
@@ -75,7 +73,7 @@ void	ft_ra(t_game *game)
 
 	a = game->a;
 	first = ft_strdup(a->bin);
-	while(a->next)
+	while (a->next)
 	{
 		a->bin = ft_strdup(a->next->bin);
 		a = a->next;
@@ -93,7 +91,7 @@ void	ft_rra(t_game *game)
 
 	a = game->a;
 	if (!(a->next))
-		return;
+		return ;
 	prec_bin = ft_strdup(a->bin);
 	a = a->next;
 	while (a)

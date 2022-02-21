@@ -1,7 +1,6 @@
 #include "push_swap.h"
 
-/* g m p */
-int		ft_case_1(t_game *g)
+int	ft_case_1(t_game *g)
 {
 	t_stack	*a;
 
@@ -14,7 +13,7 @@ int		ft_case_1(t_game *g)
 
 int	ft_case_2(t_game *g)
 {
-	t_stack *a;
+	t_stack	*a;
 
 	a = g->a;
 	if (ft_is_bigger(a->bin, a->next->bin)
@@ -26,7 +25,7 @@ int	ft_case_2(t_game *g)
 
 int	ft_case_3(t_game *g)
 {
-	t_stack *a;
+	t_stack	*a;
 
 	a = g->a;
 	if (ft_is_bigger(a->bin, a->next->bin)
@@ -38,7 +37,7 @@ int	ft_case_3(t_game *g)
 
 int	ft_case_4(t_game *g)
 {
-	t_stack *a;
+	t_stack	*a;
 
 	a = g->a;
 	if (!(ft_is_bigger(a->bin, a->next->bin))
@@ -51,7 +50,7 @@ int	ft_case_4(t_game *g)
 void	ft_stack_three(t_game *g)
 {
 	if (ft_is_sorted(g->a))
-		return;
+		return ;
 	if (ft_case_1(g))
 		ft_sa(g);
 	else if (ft_case_2(g))

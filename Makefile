@@ -20,27 +20,20 @@ INCLUDE		=	-I include/					\
 
 RM			=	/bin/rm -f
 
-PS_FILES	=	push_swap.c			\
-				radix_sort.c		\
-				moves.c				\
-				binary_tree.c		\
-				binary_stack.c		\
+PS_FILES	=	push_swap.c				\
+				push_swap_utils.c		\
+				push_swap_utils_2.c		\
+				radix_sort.c			\
+				radix_sort_utils.c		\
+				moves.c					\
+				binary_tree.c			\
+				binary_tree_utils.c		\
+				binary_stack.c			\
+				binary_stack_utils.c	\
 				stack_three.c		\
-				stack_five.c
-				# list.c			\
-				# list_sort.c		\
-				# list_u1.c		\
-				# list_u2.c		\
-				# check.c			\
-				# init.c			\
-				# case.c			\
-				# algo_short.c	\
-				# algo_bigger.c	\
-				# norm.c			\
-				# get.c			\
-				# op_p.c			\
-				# op_r.c			\
-				# op_s.c
+				stack_five.c			\
+				stack_five_utils.c		\
+				stack_five_utils_2.c	
 
 # C_FILES		=	c_srcs/c_main.c	
 

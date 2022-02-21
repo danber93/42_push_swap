@@ -8,7 +8,7 @@ int	ft_bt_inorder(t_node *node, int	*arr, int j)
 	j++;
 	if (node->right)
 		j = ft_bt_inorder(node->right, arr, j);
-	return j;
+	return (j);
 }
 
 // child 0 = left child, child 1 = right child
@@ -30,7 +30,7 @@ void	ft_add_node(t_node *node, int n, int child)
 	}
 }
 
-void	ft_pop_btree(t_node	*node, int	n)
+void	ft_pop_btree(t_node *node, int n)
 {
 	if (n < node->value)
 	{
@@ -78,13 +78,4 @@ int	*ft_pop_arr(t_node *root, int ac)
 	arr = ft_calloc(sizeof(int), ac);
 	ft_bt_inorder(root, arr, 0);
 	return (arr);
-}
-
-void	ft_free_btree(t_node *node)
-{
-		if (node->left)
-			ft_free_btree(node->left);
-		if (node->right)
-			ft_free_btree(node->right);
-		free(node);
 }
