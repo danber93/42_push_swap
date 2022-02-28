@@ -1,4 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dbertill <dbertill@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/28 22:17:41 by dbertill          #+#    #+#             */
+/*   Updated: 2022/02/28 22:17:41 by dbertill         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
+
+// void	print_game(t_game *g)
+// {
+// 	t_stack	*a;;
+// 	t_stack	*b;
+
+// 	a = g->a;
+// 	b = g->b;
+// 	while (a || b)
+// 	{
+// 		if (a && b)
+// 		{
+// 			printf("%s        %s\n", a->bin, b->bin);
+// 			a = a->next;
+// 			b = b->next;
+// 		}
+// 		else if (a && !b)
+// 		{
+// 			printf("%s        \n", a->bin);
+// 			a = a->next;
+// 		}
+// 		else if (!a && b)
+// 		{
+// 			printf("        %s\n", b->bin);
+// 			b = b->next;
+// 		}
+// 	}
+// 	printf("--       --\n");
+// 	printf("a.........b\n\n");
+// }
 
 void	ft_add_empty_supp(char **input, char **new, int len)
 {
@@ -33,6 +75,9 @@ char	**ft_add_empty(char **input)
 		return (NULL);
 	new[0] = "./push_swap\0";
 	ft_add_empty_supp(input, new, len);
+	len = 0;
+	while (input[len])
+		free(input[len++]);
 	free(input);
 	return (new);
 }
@@ -53,6 +98,7 @@ void	ft_play(char **args, int f)
 	t_node	*root;
 	int		*arr;
 	t_game	*game;
+	int		i;
 
 	root = ft_init_btree(args);
 	arr = ft_pop_arr(root, ft_n_args(args));
@@ -69,7 +115,12 @@ void	ft_play(char **args, int f)
 			ft_radix_sort(game);
 	}
 	if (f == 1)
+	{
+		i = 0;
+		while (args[i])
+			free(args[i++]);
 		free(args);
+	}
 	ft_free_game(game);
 }
 

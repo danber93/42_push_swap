@@ -54,10 +54,10 @@ $(LIB)		:
 				/bin/mv $(LIB_DIR)$(LIB) .
 
 $(PS_NAME)	:	$(PS_OBJ) $(LIB)
-				$(CC) -fsanitize=address -o $@ $^
+				$(CC) -o $@ $^
 
 # $(C_NAME)	:	$(C_OBJ) $(LIB)
-				# $(CC) -fsanitize=address -o $@ $^
+#				$(CC) -fsanitize=address -o $@ $^
 
 clean		:	
 				for dir in $(MODULES); do			\

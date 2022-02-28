@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moves.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dbertill <dbertill@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/28 22:17:30 by dbertill          #+#    #+#             */
+/*   Updated: 2022/02/28 22:17:30 by dbertill         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_sa(t_game *g)
@@ -10,7 +22,9 @@ int	ft_sa(t_game *g)
 	if (a->next)
 	{
 		tmp = ft_strdup(a->bin);
+		free(a->bin);
 		a->bin = a->next->bin;
+		free(a->next->bin);
 		a->next->bin = ft_strdup(tmp);
 		free(tmp);
 		return (1);
@@ -75,7 +89,9 @@ void	ft_ra(t_game *game)
 	first = ft_strdup(a->bin);
 	while (a->next)
 	{
+		free(a->bin);
 		a->bin = ft_strdup(a->next->bin);
+		free(a->next->bin);
 		a = a->next;
 	}
 	a->bin = ft_strdup(first);
@@ -93,12 +109,16 @@ void	ft_rra(t_game *game)
 	if (!(a->next))
 		return ;
 	prec_bin = ft_strdup(a->bin);
+	free(a->bin);
 	a = a->next;
 	while (a)
 	{
 		current_bin = ft_strdup(a->bin);
+		free(a->bin);
 		a->bin = ft_strdup(prec_bin);
+		free(prec_bin);
 		prec_bin = ft_strdup(current_bin);
+		free(current_bin);
 		a = a->next;
 	}
 	game->a->bin = ft_strdup(prec_bin);
